@@ -24,9 +24,11 @@ public:
 private slots:
     void on_pushButton_2_clicked();
     void replyFinished(QNetworkReply* reply);
+    void RepeatGET();
 
 private:
     Ui::MainWindow *ui;
+
 
 };
 

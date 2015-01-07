@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>650</width>
-    <height>465</height>
+    <width>1062</width>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,16 +50,41 @@
      </rect>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>140</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>230</y>
+      <width>471</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
    <zorder>pushButton_2</zorder>
    <zorder>pushButton</zorder>
    <zorder>textEdit</zorder>
+   <zorder>label</zorder>
+   <zorder>lineEdit</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>650</width>
+     <width>1062</width>
      <height>21</height>
     </rect>
    </property>
