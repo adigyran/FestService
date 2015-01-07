@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QtNetwork/QNetworkRequest>
 #include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkReply>
 
 
 
@@ -22,6 +23,7 @@ public:
 
 private slots:
     void on_pushButton_2_clicked();
+    void replyFinished(QNetworkReply* reply);
 
 private:
     Ui::MainWindow *ui;

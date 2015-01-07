@@ -27,11 +27,7 @@ void MainWindow::on_pushButton_2_clicked()
 }
 void MainWindow::replyFinished(QNetworkReply* reply)
 {
-  if (reply->error() == QNetworkReply::NoError)
-    {
-      QByteArray content= reply->readAll();
-      QTextCodec *codec = QTextCodec::codecForName("cp1251");
-      ui->textEdit->setPlainText(codec->toUnicode(content.data()) );
-    }
-  else qDebug()<<reply->errorString();
+
+      QByteArray content = reply->readAll();
+      ui->textEdit->setPlainText(content.data());
 }
