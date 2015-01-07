@@ -40,6 +40,8 @@
      <string>PushButton</string>
     </property>
    </widget>
+   <zorder>pushButton_2</zorder>
+   <zorder>pushButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
