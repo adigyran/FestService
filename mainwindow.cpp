@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-   manager = new QNetworkAccessManager(this);
+   QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     ui->pushButton->setText("ttyty");
     //manager->get("");
 
