@@ -15,10 +15,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
 void MainWindow::on_pushButton_2_clicked()
 {
    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     ui->pushButton->setText("ttyty");
-    //manager->get("");
+    connect(manager, SIGNAL(finished(QNetworkReply*)),
+            this, SLOT(replyFinished(QNetworkReply*)));
+    manager->get(QNetworkRequest(QUrl("http://www.cyberforum.ru")));
 
+}
+void MainWindow::replyFinished(QNetworkReply* reply)
+{
+  if (reply->error() == QNetworkReply::NoError)
+    {
+      QByteArray content= reply->readAll();
+      QTextCodec *codec = QTextCodec::codecForName("cp1251");
+      ui->textEdit->setPlainText(codec->toUnicode(content.data()) );
+    }
+  else qDebug()<<reply->errorString();
 }
