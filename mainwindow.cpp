@@ -7,6 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    manager = new QNetworkAccessManager(this);
+     ui->pushButton->setText("ttyty");
+     connect(manager, SIGNAL(finished(QNetworkReply*)),
+             this, SLOT(replyFinished(QNetworkReply*)));
+     decoder.DecoderFormat_QR_CODE;
 
 }
 
@@ -19,13 +24,11 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_2_clicked()
 {
      int Counts=0;
-   QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-    ui->pushButton->setText("ttyty");
-    connect(manager, SIGNAL(finished(QNetworkReply*)),
-            this, SLOT(replyFinished(QNetworkReply*)));
+
     QString URLaddress ="http://"+ui->lineEdit->text();
     ui->label->setText(URLaddress);
-    manager->get(QNetworkRequest(QUrl(URLaddress)));
+   // manager->get(QNetworkRequest(QUrl(URLaddress)));
+
     //if (Counts<500)
      // {
 //          RepeatGET();
@@ -36,6 +39,7 @@ void MainWindow::on_pushButton_2_clicked()
 
 //      }
 
+
 }
 
 void MainWindow::replyFinished(QNetworkReply* reply)
@@ -44,15 +48,17 @@ void MainWindow::replyFinished(QNetworkReply* reply)
 
       QByteArray content = reply->readAll();
       ui->textEdit->setPlainText(content.data());
+      qDebug() << "testing";
+      QMessageBox::information(this,"test",QString::number(content.length()));
+      this->setWindowOpacity(0.75);
 
 }
 
 void MainWindow::RepeatGET()
 {
-   QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-    connect(manager, SIGNAL(finished(QNetworkReply*)),
-            this, SLOT(replyFinished(QNetworkReply*)));
+
     manager->get(QNetworkRequest(QUrl("http://strategium.ru")));
+
 
 
 }

@@ -5,7 +5,10 @@
 #include <QtNetwork/QNetworkRequest>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
-
+#include <QMessageBox>
+#include <QDebug>
+#include <QPixmap>
+#include <qzxing.h>
 
 
 namespace Ui {
@@ -30,6 +33,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QNetworkAccessManager *manager;
+    QZXing decoder;
 
 
 };
