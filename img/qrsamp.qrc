@@ -5,5 +5,9 @@
         <file>qr-code2.gif</file>
         <file>qr-code2.jpg</file>
         <file>qr-code3.gif</file>
+        <file>qrtest.png</file>
+        <file>qrtest2.png</file>
+        <file>qr-code2.bmp</file>
+        <file>qr-code3.bmp</file>
     </qresource>
 </RCC>

@@ -100,11 +100,12 @@ void MainWindow::RepeatGET()
 void MainWindow::on_pushButton_3_clicked()
 {
 
-   qDebug() <<  QR_Sample.load(":/image/qr-code3.gif");
+   qDebug() <<  QR_Sample.load(":/image/qrtest2.png");
+
    ui->label_2->setPixmap(QPixmap::fromImage(QR_Sample));
 
     qDebug() << QR_Sample.size();
-qDebug() << decoder.decodeImage(QR_Sample,180,180,false);
+qDebug() << decoder.decodeImage(QR_Sample,1800,1800,false);
 qDebug() << QR_Sample.size();
 
 }
