@@ -1,14 +1,33 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QPalette>
+
+
+#include <QtWidgets>
+
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent), decoder(QZXing::DecoderFormat_QR_CODE), camera(0),
+    QMainWindow(parent), decoder(QZXing::DecoderFormat_QR_CODE),
+    camera(0),
     imageCapture(0),
     mediaRecorder(0),
+    isCapturingImage(false),
+    applicationExiting(false),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
+    QActionGroup *videoDevicesGroup = new QActionGroup(this);
+    videoDevicesGroup->setExclusive(true);
+    foreach (const QCameraInfo &cameraInfo, QCameraInfo::availableCameras()) {
+        QAction *videoDeviceAction = new QAction(cameraInfo.description(), videoDevicesGroup);
+        videoDeviceAction->setCheckable(true);
+        videoDeviceAction->setData(QVariant::fromValue(cameraInfo));
+        if (cameraInfo == QCameraInfo::defaultCamera())
+            videoDeviceAction->setChecked(true);
+
+        ui->menuBar->addAction(videoDeviceAction);
+    }
     manager = new QNetworkAccessManager(this);
 
      ui->pushButton->setText("ttyty");
@@ -18,14 +37,19 @@ MainWindow::MainWindow(QWidget *parent) :
      connect(&decoder, SIGNAL(tagFound(QString)), this, SLOT(reportTagFound(QString)));
 
 
+    // connect(videoDevicesGroup, SIGNAL(triggered(QAction*)), SLOT(updateCameraDevice(QAction*)));
+     //connect(ui->captureWidget, SIGNAL(currentChanged(int)), SLOT(updateCaptureMode()));
 
-
-
+     //setCamera(QCameraInfo::defaultCamera());
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete mediaRecorder;
+    delete imageCapture;
+    delete camera;
+
 }
 
 

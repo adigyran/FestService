@@ -43,14 +43,17 @@ private:
     QNetworkAccessManager *manager;
     QZXing decoder;
     QImage QR_Sample;
-    QPointer< QCamera > m_camera;
-    QPointer< QCameraImageCapture > m_imageCapture;
-     static QByteArray m_defaultDevice;
-    QPixmap m_pixmap;
-     QDialog *m_selectDialog;
-     QCamera *camera;
-     QCameraImageCapture *imageCapture;
-     QMediaRecorder* mediaRecorder;
+
+    QCamera *camera;
+    QCameraImageCapture *imageCapture;
+    QMediaRecorder* mediaRecorder;
+
+    QImageEncoderSettings imageSettings;
+    QAudioEncoderSettings audioSettings;
+    QVideoEncoderSettings videoSettings;
+    QString videoContainerFormat;
+    bool isCapturingImage;
+    bool applicationExiting;
 
 
 };
