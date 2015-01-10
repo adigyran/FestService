@@ -134,7 +134,7 @@ void MainWindow::on_pushButton_4_clicked()
     ui->label_2->setPixmap(QPixmap::fromImage(QR_Sample2));
 
      qDebug() << QR_Sample2.size();
- qDebug() << decoder.decodeImage(QR_Sample2,180,180,false);
+ qDebug() << decoder.decodeImage(QR_Sample2,1800,1800,false);
  qDebug() << QR_Sample2.size();
 
 }
