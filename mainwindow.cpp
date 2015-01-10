@@ -54,4 +54,10 @@ void MainWindow::RepeatGET()
             this, SLOT(replyFinished(QNetworkReply*)));
     manager->get(QNetworkRequest(QUrl("http://strategium.ru")));
 
+
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+
 }

@@ -26,6 +26,8 @@ private slots:
     void replyFinished(QNetworkReply* reply);
     void RepeatGET();
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::MainWindow *ui;
 
