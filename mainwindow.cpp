@@ -1,9 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
- QByteArray MainWindow::m_defaultDevice = QByteArray();
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent), decoder(QZXing::DecoderFormat_QR_CODE),
+    QMainWindow(parent), decoder(QZXing::DecoderFormat_QR_CODE), camera(0),
+    imageCapture(0),
+    mediaRecorder(0),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -15,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
              this, SLOT(replyFinished(QNetworkReply*)));
     // decoder.DecoderFormat_QR_CODE;
      connect(&decoder, SIGNAL(tagFound(QString)), this, SLOT(reportTagFound(QString)));
+
 
 
 

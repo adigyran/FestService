@@ -14,6 +14,7 @@
 #include <QtWidgets/QtWidgets>
 
 
+
 namespace Ui {
 class MainWindow;
 }
@@ -47,6 +48,9 @@ private:
      static QByteArray m_defaultDevice;
     QPixmap m_pixmap;
      QDialog *m_selectDialog;
+     QCamera *camera;
+     QCameraImageCapture *imageCapture;
+     QMediaRecorder* mediaRecorder;
 
 
 };
