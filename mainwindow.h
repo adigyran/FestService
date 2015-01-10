@@ -9,6 +9,9 @@
 #include <QDebug>
 #include <QPixmap>
 #include <qzxing.h>
+#include <QImage>
+#include <QtMultimedia/QtMultimedia>
+#include <QtWidgets/QtWidgets>
 
 
 namespace Ui {
@@ -30,11 +33,20 @@ private slots:
     void RepeatGET();
 
     void on_pushButton_3_clicked();
+    void reportTagFound(QString tag);
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::MainWindow *ui;
     QNetworkAccessManager *manager;
     QZXing decoder;
+    QImage QR_Sample;
+    QPointer< QCamera > m_camera;
+    QPointer< QCameraImageCapture > m_imageCapture;
+     static QByteArray m_defaultDevice;
+    QPixmap m_pixmap;
+     QDialog *m_selectDialog;
 
 
 };

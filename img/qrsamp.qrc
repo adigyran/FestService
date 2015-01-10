@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>qr-code.jpg</file>
+        <file>qr-code.bmp</file>
+        <file>qr-code2.gif</file>
+        <file>qr-code2.jpg</file>
+        <file>qr-code3.gif</file>
+    </qresource>
+</RCC>

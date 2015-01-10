@@ -20,3 +20,9 @@ HEADERS  += mainwindow.h
 FORMS    += mainwindow.ui
 
 include(QZXing/QZXing.pri)
+
+RESOURCES += \
+    img/qrsamp.qrc
+
+DISTFILES += \
+    img/qr-code.jpg
