@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1062</width>
-    <height>578</height>
+    <width>1189</width>
+    <height>712</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -43,8 +43,8 @@
    <widget class="QTextEdit" name="textEdit">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>120</y>
+      <x>70</x>
+      <y>10</y>
       <width>351</width>
       <height>361</height>
      </rect>
@@ -89,10 +89,10 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>340</y>
-      <width>331</width>
-      <height>171</height>
+      <x>60</x>
+      <y>380</y>
+      <width>411</width>
+      <height>241</height>
      </rect>
     </property>
     <property name="text">
@@ -112,6 +112,16 @@
      <string>Camera</string>
     </property>
    </widget>
+   <widget class="QCameraViewfinder" name="viewfinder" native="true">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>260</y>
+      <width>482</width>
+      <height>345</height>
+     </rect>
+    </property>
+   </widget>
    <zorder>pushButton_2</zorder>
    <zorder>pushButton</zorder>
    <zorder>textEdit</zorder>
@@ -120,19 +130,40 @@
    <zorder>pushButton_3</zorder>
    <zorder>label_2</zorder>
    <zorder>pushButton_4</zorder>
+   <zorder>viewfinder</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1062</width>
+     <width>1189</width>
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuDevices">
+    <property name="title">
+     <string>Devices</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuDevices"/>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QCameraViewfinder</class>
+   <extends>QWidget</extends>
+   <header>qcameraviewfinder.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

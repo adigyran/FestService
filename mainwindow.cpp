@@ -5,6 +5,7 @@
 
 #include <QtWidgets>
 
+Q_DECLARE_METATYPE(QCameraInfo)
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent), decoder(QZXing::DecoderFormat_QR_CODE),
@@ -37,7 +38,8 @@ MainWindow::MainWindow(QWidget *parent) :
      connect(&decoder, SIGNAL(tagFound(QString)), this, SLOT(reportTagFound(QString)));
 
 
-    // connect(videoDevicesGroup, SIGNAL(triggered(QAction*)), SLOT(updateCameraDevice(QAction*)));
+    connect(videoDevicesGroup, SIGNAL(triggered(QAction*)), SLOT(updateCameraDevice(QAction*)));
+
      //connect(ui->captureWidget, SIGNAL(currentChanged(int)), SLOT(updateCaptureMode()));
 
      //setCamera(QCameraInfo::defaultCamera());
@@ -124,4 +126,59 @@ void MainWindow::on_pushButton_4_clicked()
        // m_camera = new QCamera( m_defaultDevice );
 
 
+  QImage QR_Sample2(800,600,QImage::Format_RGB32);
+
+    QR_Sample2 = ui->viewfinder->grab().toImage();
+
+    ui->label_2->setPixmap(QPixmap::fromImage(QR_Sample2));
+
+     qDebug() << QR_Sample2.size();
+ qDebug() << decoder.decodeImage(QR_Sample2,180,180,false);
+ qDebug() << QR_Sample2.size();
+
 }
+
+
+void MainWindow::setCamera(const QCameraInfo &cameraInfo)
+{
+    delete imageCapture;
+    delete mediaRecorder;
+    delete camera;
+
+    camera = new QCamera(cameraInfo);
+
+    //connect(camera, SIGNAL(stateChanged(QCamera::State)), this, SLOT(updateCameraState(QCamera::State)));
+   // connect(camera, SIGNAL(error(QCamera::Error)), this, SLOT(displayCameraError()));
+
+    mediaRecorder = new QMediaRecorder(camera);
+   // connect(mediaRecorder, SIGNAL(stateChanged(QMediaRecorder::State)), this, SLOT(updateRecorderState(QMediaRecorder::State)));
+
+    imageCapture = new QCameraImageCapture(camera);
+
+   // connect(mediaRecorder, SIGNAL(durationChanged(qint64)), this, SLOT(updateRecordTime()));
+   // connect(mediaRecorder, SIGNAL(error(QMediaRecorder::Error)), this, SLOT(displayRecorderError()));
+
+    mediaRecorder->setMetaData(QMediaMetaData::Title, QVariant(QLatin1String("Test Title")));
+
+    //connect(ui->exposureCompensation, SIGNAL(valueChanged(int)), SLOT(setExposureCompensation(int)));
+
+    camera->setViewfinder(ui->viewfinder);
+
+    //updateCameraState(camera->state());
+   // updateLockStatus(camera->lockStatus(), QCamera::UserRequest);
+   // updateRecorderState(mediaRecorder->state());
+
+
+
+    //ui->captureWidget->setTabEnabled(0, (camera->isCaptureModeSupported(QCamera::CaptureStillImage)));
+    //ui->captureWidget->setTabEnabled(1, (camera->isCaptureModeSupported(QCamera::CaptureVideo)));
+
+    //updateCaptureMode();
+    camera->start();
+}
+
+void MainWindow::updateCameraDevice(QAction *action)
+{
+    setCamera(qvariant_cast<QCameraInfo>(action->data()));
+}
+

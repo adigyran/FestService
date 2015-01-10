@@ -37,6 +37,13 @@ private slots:
     void reportTagFound(QString tag);
 
     void on_pushButton_4_clicked();
+    void setCamera(const QCameraInfo &cameraInfo);
+
+
+    void updateCameraDevice(QAction *action);
+
+
+
 
 private:
     Ui::MainWindow *ui;
@@ -54,6 +61,7 @@ private:
     QString videoContainerFormat;
     bool isCapturingImage;
     bool applicationExiting;
+
 
 
 };
