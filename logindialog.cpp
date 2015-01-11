@@ -50,6 +50,9 @@ void logindialog::asseptloginpass()
     if (pass_check && login_check)
     {
         qDebug() << "Проверка пароля";
+        ui->lineEdit_login->setReadOnly(true);
+        ui->lineEdit_password->setReadOnly(true);
+
     }
 
 }
