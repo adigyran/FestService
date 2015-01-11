@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QWidget>
 #include <QLineEdit>
+#include <network_serv.h>
 
 namespace Ui {
 class logindialog;
@@ -29,6 +30,7 @@ private:
     Ui::logindialog *ui;
     bool login_check;
     bool pass_check;
+    Networkserv *servicenet;
    // QWidget Passwredit;
 
 

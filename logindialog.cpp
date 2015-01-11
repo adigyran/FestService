@@ -11,6 +11,7 @@ logindialog::logindialog(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->lineEdit_password->setEchoMode(QLineEdit::PasswordEchoOnEdit);
+    servicenet = new Networkserv(this);
 
 
 }
@@ -52,11 +53,12 @@ void logindialog::asseptloginpass()
         qDebug() << "Проверка пароля";
         ui->lineEdit_login->setReadOnly(true);
         ui->lineEdit_password->setReadOnly(true);
+        QByteArray Reqw = "login="+ui->lineEdit_login->text().toUtf8()+"&password="+ui->lineEdit_password->text().toUtf8();
+        QString TRT =  servicenet->Netw_reqw(Reqw,QString("http://postcatcher.in/catchers/54b2450cad7b44020000032e"));
 
     }
 
 }
-
 
 
 

@@ -13,6 +13,8 @@
 #include <QtMultimedia/QtMultimedia>
 #include <QtWidgets/QtWidgets>
 #include <QTimer>
+#include <network_serv.h>
+
 
 
 
