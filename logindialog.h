@@ -2,6 +2,8 @@
 #define LOGINDIALOG_H
 
 #include <QDialog>
+#include <QWidget>
+#include <QLineEdit>
 
 namespace Ui {
 class logindialog;
@@ -17,12 +19,18 @@ public:
 
 private slots:
     void on_lineEdit_password_returnPressed();
+    void asseptloginpass();
 
 
+
+    void on_pushButton_login_clicked();
 
 private:
     Ui::logindialog *ui;
+    bool login_check;
+    bool pass_check;
    // QWidget Passwredit;
+
 
 };
 

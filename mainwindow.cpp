@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QPalette>
+#include <QKeyEvent>
 
 
 #include <QtWidgets>
@@ -20,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QActionGroup *videoDevicesGroup = new QActionGroup(this);
     videoDevicesGroup->setExclusive(true);
-    QMessageBox::information(this,"cameras",QString::number(QCameraInfo::availableCameras().size()));
+  //  QMessageBox::information(this,"cameras",QString::number(QCameraInfo::availableCameras().size()));
     foreach (const QCameraInfo &cameraInfo, QCameraInfo::availableCameras()) {
         QAction *videoDeviceAction = new QAction(cameraInfo.description(), videoDevicesGroup);
         videoDeviceAction->setCheckable(true);
@@ -188,3 +189,4 @@ void MainWindow::on_pushButton_clicked()
     QNetworkRequest request(URLaddress);
     manager->post(request,requestString);
 }
+
