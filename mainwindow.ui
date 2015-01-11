@@ -73,24 +73,11 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>840</x>
-      <y>40</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>380</y>
+      <y>370</y>
       <width>411</width>
       <height>241</height>
      </rect>
@@ -115,11 +102,24 @@
    <widget class="QCameraViewfinder" name="viewfinder" native="true">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>260</y>
-      <width>482</width>
-      <height>345</height>
+      <x>430</x>
+      <y>290</y>
+      <width>741</width>
+      <height>391</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>50</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
     </property>
    </widget>
    <zorder>pushButton_2</zorder>
@@ -127,10 +127,10 @@
    <zorder>textEdit</zorder>
    <zorder>label</zorder>
    <zorder>lineEdit</zorder>
-   <zorder>pushButton_3</zorder>
    <zorder>label_2</zorder>
    <zorder>pushButton_4</zorder>
    <zorder>viewfinder</zorder>
+   <zorder>pushButton_3</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

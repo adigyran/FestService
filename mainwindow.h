@@ -12,6 +12,7 @@
 #include <QImage>
 #include <QtMultimedia/QtMultimedia>
 #include <QtWidgets/QtWidgets>
+#include <QTimer>
 
 
 

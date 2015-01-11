@@ -43,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
      //connect(ui->captureWidget, SIGNAL(currentChanged(int)), SLOT(updateCaptureMode()));
 
      //setCamera(QCameraInfo::defaultCamera());
+
 }
 
 MainWindow::~MainWindow()
@@ -63,15 +64,6 @@ void MainWindow::on_pushButton_2_clicked()
     ui->label->setText(URLaddress);
    // manager->get(QNetworkRequest(QUrl(URLaddress)));
 
-    //if (Counts<500)
-     // {
-//          RepeatGET();
-
-//          ui->label->setText(QString::number(Counts));
-
-//          Counts++;
-
-//      }
 
 
 }
@@ -91,7 +83,6 @@ void MainWindow::replyFinished(QNetworkReply* reply)
 void MainWindow::RepeatGET()
 {
 
-    manager->get(QNetworkRequest(QUrl("http://strategium.ru")));
 
 
 
@@ -111,8 +102,9 @@ qDebug() << QR_Sample.size();
 }
 void MainWindow::reportTagFound(QString tag)
 {
-    QMessageBox::information(this, QString("Decoding result") ,tag);
+  QMessageBox::information(this, QString("Decoding result") ,tag);
     qDebug() << tag;
+    qDebug() << decoder.getProcessTimeOfLastDecoding();
 
 }
 

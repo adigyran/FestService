@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui quick
 
 greaterThan(QT_VERSION, 4.7): QT += declarative
 greaterThan(QT_VERSION, 5.0): QT += quick

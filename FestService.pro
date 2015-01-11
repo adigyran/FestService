@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network multimedia multimediawidgets
+QT       += core gui network multimedia multimediawidgets quick
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,4 +25,13 @@ RESOURCES += \
     img/qrsamp.qrc
 
 DISTFILES += \
-    img/qr-code.jpg
+    img/qr-code.jpg \
+    android/gradle/wrapper/gradle-wrapper.jar \
+    android/AndroidManifest.xml \
+    android/res/values/libs.xml \
+    android/build.gradle \
+    android/gradle/wrapper/gradle-wrapper.properties \
+    android/gradlew \
+    android/gradlew.bat
+
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
