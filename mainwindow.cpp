@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-   QMessageBox::information(this,"cameras",this->objectName());
+
     QActionGroup *videoDevicesGroup = new QActionGroup(this);
     videoDevicesGroup->setExclusive(true);
     QMessageBox::information(this,"cameras",QString::number(QCameraInfo::availableCameras().size()));
@@ -78,7 +78,7 @@ void MainWindow::replyFinished(QNetworkReply* reply)
       ui->textEdit->setPlainText(content.data());
       qDebug() << "testing";
       QMessageBox::information(this,"test",QString::number(content.length()));
-      this->setWindowOpacity(0.75);
+     // this->setWindowOpacity(0.75);
 
 }
 
@@ -107,6 +107,8 @@ void MainWindow::reportTagFound(QString tag)
   QMessageBox::information(this, QString("Decoding result") ,tag);
     qDebug() << tag;
     qDebug() << decoder.getProcessTimeOfLastDecoding();
+    QMessageBox::information(this,"test",QString::number(decoder.getProcessTimeOfLastDecoding()));
+
 
 }
 
@@ -177,3 +179,12 @@ void MainWindow::updateCameraDevice(QAction *action)
     setCamera(qvariant_cast<QCameraInfo>(action->data()));
 }
 
+
+void MainWindow::on_pushButton_clicked()
+{
+    QByteArray requestString = "logn=222&prl=xml";
+    QString URLaddress ="http://"+ui->lineEdit->text();
+    ui->label->setText(URLaddress);
+    QNetworkRequest request(URLaddress);
+    manager->post(request,requestString);
+}
