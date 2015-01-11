@@ -12,6 +12,7 @@ logindialog::logindialog(QWidget *parent) :
     ui->setupUi(this);
     ui->lineEdit_password->setEchoMode(QLineEdit::PasswordEchoOnEdit);
     servicenet = new Networkserv(this);
+    connect(servicenet,SIGNAL(netwout(QByteArray*)),this,SLOT(Netwrkinput(QByteArray*)));
 
 
 }
@@ -61,7 +62,10 @@ void logindialog::asseptloginpass()
 }
 
 
-
+void logindialog::Netwrkinput(QByteArray *replydata)
+{
+    qDebug() << replydata->data();
+}
 
 
 

@@ -21,6 +21,7 @@ public:
 private slots:
     void on_lineEdit_password_returnPressed();
     void asseptloginpass();
+    void Netwrkinput(QByteArray* replydata);
 
 
 

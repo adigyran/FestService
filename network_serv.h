@@ -11,6 +11,8 @@ class Networkserv : public QObject
 {
     Q_OBJECT
 
+signals:
+    void netwout(QByteArray* replydata);
 public slots:
     void replyFinished(QNetworkReply* reply);
 public:

@@ -22,6 +22,8 @@ void Networkserv::replyFinished(QNetworkReply *reply)
     qDebug() << content.data();
    // QMessageBox::information(this,"test",QString::number(content.length()));
    // this->setWindowOpacity(0.75);
+    QByteArray *contentout = new QByteArray(content);
+    emit netwout(contentout);
 }
 
 QString Networkserv::Netw_reqw(QByteArray reqString,QString UAddress)
@@ -32,6 +34,7 @@ QString Networkserv::Netw_reqw(QByteArray reqString,QString UAddress)
     //ui->label->setText(URLaddress);
     QNetworkRequest request(URLaddress);
     network_manager->post(request,requestString);
+
     return "test";
 }
 
