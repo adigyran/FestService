@@ -17,9 +17,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+   QMessageBox::information(this,"cameras",this->objectName());
     QActionGroup *videoDevicesGroup = new QActionGroup(this);
     videoDevicesGroup->setExclusive(true);
+    QMessageBox::information(this,"cameras",QString::number(QCameraInfo::availableCameras().size()));
     foreach (const QCameraInfo &cameraInfo, QCameraInfo::availableCameras()) {
         QAction *videoDeviceAction = new QAction(cameraInfo.description(), videoDevicesGroup);
         videoDeviceAction->setCheckable(true);
@@ -27,8 +28,9 @@ MainWindow::MainWindow(QWidget *parent) :
         if (cameraInfo == QCameraInfo::defaultCamera())
             videoDeviceAction->setChecked(true);
 
-        ui->menuBar->addAction(videoDeviceAction);
+        ui->menuDevices->addAction(videoDeviceAction);
     }
+
     manager = new QNetworkAccessManager(this);
 
      ui->pushButton->setText("ttyty");
