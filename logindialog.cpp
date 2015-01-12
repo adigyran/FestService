@@ -14,6 +14,7 @@ logindialog::logindialog(QWidget *parent) :
     ui->lineEdit_password->setEchoMode(QLineEdit::PasswordEchoOnEdit);
     servicenet = new Networkserv(this);
     connect(servicenet,SIGNAL(netwout(QByteArray*)),this,SLOT(Netwrkinput(QByteArray*)));
+    setFixedSize(size());
 
 
 
@@ -67,7 +68,11 @@ void logindialog::asseptloginpass()
 void logindialog::Netwrkinput(QByteArray* replydata)
 {
     qDebug() << replydata->data();
-    if (replydata->data()=="'adigyran'correct")
+    qDebug() << replydata->length();
+
+    QString teststr = "adigyran";
+
+    if (replydata->data()==teststr)
     {
         qDebug() << "corrected";
         ui->lineEdit_login->setReadOnly(false);

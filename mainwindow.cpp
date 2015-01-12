@@ -41,13 +41,16 @@ MainWindow::MainWindow(QWidget *parent) :
      connect(&decoder, SIGNAL(tagFound(QString)), this, SLOT(reportTagFound(QString)));
 
 
+
     connect(videoDevicesGroup, SIGNAL(triggered(QAction*)), SLOT(updateCameraDevice(QAction*)));
 
      //connect(ui->captureWidget, SIGNAL(currentChanged(int)), SLOT(updateCaptureMode()));
 
      //setCamera(QCameraInfo::defaultCamera());
     loginpass = new logindialog(this);
+    connect(loginpass,SIGNAL(MainShoww()),this,SLOT(show()));
     loginpass->show();
+
 
 }
 
