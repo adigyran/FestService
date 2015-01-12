@@ -6,6 +6,8 @@
 #include <QLineEdit>
 #include <network_serv.h>
 
+
+
 namespace Ui {
 class logindialog;
 }
@@ -13,9 +15,11 @@ class logindialog;
 class logindialog : public QDialog
 {
     Q_OBJECT
-
+signals:
+        void MainShoww();
 public:
     explicit logindialog(QWidget *parent = 0);
+
     ~logindialog();
 
 private slots:
@@ -25,13 +29,20 @@ private slots:
 
 
 
+
+
     void on_pushButton_login_clicked();
+
+    void on_pushButton_cancel_clicked();
 
 private:
     Ui::logindialog *ui;
     bool login_check;
     bool pass_check;
     Networkserv *servicenet;
+    QWidget *Windw;
+
+
    // QWidget Passwredit;
 
 

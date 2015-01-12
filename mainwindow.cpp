@@ -46,6 +46,8 @@ MainWindow::MainWindow(QWidget *parent) :
      //connect(ui->captureWidget, SIGNAL(currentChanged(int)), SLOT(updateCaptureMode()));
 
      //setCamera(QCameraInfo::defaultCamera());
+    loginpass = new logindialog(this);
+    loginpass->show();
 
 }
 

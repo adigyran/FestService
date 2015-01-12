@@ -14,7 +14,7 @@
 #include <QtWidgets/QtWidgets>
 #include <QTimer>
 #include <network_serv.h>
-
+#include <logindialog.h>
 
 
 
@@ -48,13 +48,16 @@ private slots:
 
 
 
+
     void on_pushButton_clicked();
 
 private:
+    logindialog *loginpass;
     Ui::MainWindow *ui;
     QNetworkAccessManager *manager;
     QZXing decoder;
     QImage QR_Sample;
+
 
     QCamera *camera;
     QCameraImageCapture *imageCapture;
@@ -66,6 +69,7 @@ private:
     QString videoContainerFormat;
     bool isCapturingImage;
     bool applicationExiting;
+
 
 
 

@@ -5,6 +5,7 @@
 #include <QMessageBox>
 
 
+
 logindialog::logindialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::logindialog)
@@ -13,6 +14,7 @@ logindialog::logindialog(QWidget *parent) :
     ui->lineEdit_password->setEchoMode(QLineEdit::PasswordEchoOnEdit);
     servicenet = new Networkserv(this);
     connect(servicenet,SIGNAL(netwout(QByteArray*)),this,SLOT(Netwrkinput(QByteArray*)));
+
 
 
 }
@@ -55,16 +57,23 @@ void logindialog::asseptloginpass()
         ui->lineEdit_login->setReadOnly(true);
         ui->lineEdit_password->setReadOnly(true);
         QByteArray Reqw = "login="+ui->lineEdit_login->text().toUtf8()+"&password="+ui->lineEdit_password->text().toUtf8();
-        QString TRT =  servicenet->Netw_reqw(Reqw,QString("http://postcatcher.in/catchers/54b2450cad7b44020000032e"));
+        QString TRT =  servicenet->Netw_reqw(Reqw,QString("http://qt.adigyran.net.ru"));
 
     }
 
 }
 
 
-void logindialog::Netwrkinput(QByteArray *replydata)
+void logindialog::Netwrkinput(QByteArray* replydata)
 {
     qDebug() << replydata->data();
+    if (replydata->data()=="'adigyran'correct")
+    {
+        qDebug() << "corrected";
+        ui->lineEdit_login->setReadOnly(false);
+        ui->lineEdit_password->setReadOnly(false);
+
+    }
 }
 
 
@@ -72,4 +81,19 @@ void logindialog::Netwrkinput(QByteArray *replydata)
 void logindialog::on_pushButton_login_clicked()
 {
     asseptloginpass();
+}
+
+void logindialog::on_pushButton_cancel_clicked()
+{
+
+QWidgetList widg = qApp->allWidgets();
+foreach(QWidget* w,widg)
+{
+   qDebug() << w->objectName();
+  //  w->show();
+}
+
+
+
+
 }
