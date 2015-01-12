@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
      //setCamera(QCameraInfo::defaultCamera());
     loginpass = new logindialog(this);
-    connect(loginpass,SIGNAL(MainShoww()),this,SLOT(show()));
+    connect(loginpass,SIGNAL(MainShoww()),this,SLOT(Suclogin()));
     loginpass->show();
 
 
@@ -141,6 +141,12 @@ void MainWindow::on_pushButton_4_clicked()
 
 }
 
+void MainWindow::Suclogin()
+{
+    MainWindow::show();
+    loginpass->close();
+    delete loginpass;
+}
 
 void MainWindow::setCamera(const QCameraInfo &cameraInfo)
 {
@@ -195,3 +201,20 @@ void MainWindow::on_pushButton_clicked()
     manager->post(request,requestString);
 }
 
+
+void MainWindow::on_action_triggered()
+{
+    QMessageBox* sure = new QMessageBox(this);
+    sure->setWindowTitle("Выход из программы");
+    sure->setText("Вы действительно хотите выйти?");
+    sure->setIcon(QMessageBox::Warning);
+    sure->setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    sure->setDefaultButton(QMessageBox::No);
+
+    int n = sure->exec();
+    delete sure;
+    if (n == QMessageBox::Yes)
+    {
+        qApp->quit();
+    }
+}

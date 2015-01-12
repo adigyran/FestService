@@ -44,6 +44,7 @@ private slots:
 
 
     void updateCameraDevice(QAction *action);
+    void Suclogin();
 
 
 

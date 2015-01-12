@@ -143,17 +143,28 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Файл</string>
     </property>
+    <addaction name="action"/>
    </widget>
    <widget class="QMenu" name="menuDevices">
     <property name="title">
-     <string>Devices</string>
+     <string>Устройства</string>
     </property>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuDevices"/>
   </widget>
+  <action name="action">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>выход</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
